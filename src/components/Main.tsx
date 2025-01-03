@@ -4,7 +4,6 @@ import { GameState, OutgoingMesssage } from "../types/types";
 import toast from "react-hot-toast";
 import RouletteNumbers, { ROULETTE_NUMBERS } from "./RouletteNumbers";
 import RouletteCoins, { ROULETTE_COINS } from "./RouletteCoins";
-const WS_URL = "ws://localhost:8080";
 
 export interface Bet {
   [key: string]: number;
@@ -19,8 +18,6 @@ const Main = () => {
   const [result, setResult] = useState(-1);
   const [balance, setBalance] = useState<number>(2500);
   const [totalLockedAmount, setToatalLockedAmount] = useState(0);
-  const [userId, setUserId] = useState("");
-  const [ws, setWs] = useState<WebSocket>();
   console.log(bets);
   useEffect(() => {
     if (!isLoading && socket) {
@@ -67,7 +64,6 @@ const Main = () => {
             case "current-state":
               setCurrentGameState(parsedData.gameState);
               setBalance(parsedData.balance);
-              setUserId(parsedData.userId);
               break;
             case "game-started":
               setCurrentGameState(GameState.CanBet);
@@ -150,6 +146,11 @@ const Main = () => {
             {currentGameState === 0 && "Bets Opem"}
           </span>
         </div>
+        {currentGameState === GameState.GameOVer && result !== -1 && (
+          <div className="text-white ">
+            <span className="font-semibold text-xl">Result : {result}</span>
+          </div>
+        )}
       </div>
     </div>
   );

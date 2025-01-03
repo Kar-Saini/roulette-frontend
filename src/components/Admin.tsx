@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import useSocket from "../hooks/useSocket";
 import { GameState, OutgoingMesssage } from "../types/types";
 import toast from "react-hot-toast";
-const ADMIN_NAME = "KARTIK";
 const Admin = () => {
   const [result, setResult] = useState(-1);
   const { socket, isLoading } = useSocket("KARTIK");
@@ -121,36 +120,36 @@ const Admin = () => {
 };
 
 export default Admin;
-function AdminInput({
-  adminName,
-  setAdminName,
-}: {
-  adminName: string;
-  setAdminName: (name: string) => void;
-}) {
-  return (
-    <div className="flex flex-col items-center justify-center h-screen bg-green-800 gap-y-4">
-      <label htmlFor="name" className="text-white text-lg font-semibold">
-        Enter Admin Name
-      </label>
-      <input
-        className=" rounded-sm p-2 outline-none text-sm"
-        placeholder="Admin"
-        type="text"
-        name="name"
-        id="name"
-        value={adminName}
-        onChange={(e) => setAdminName(e.target.value)}
-      />
-      <button
-        className="text-black py-2 bg-green-400 rounded-lg px-4 text-sm
-  "
-      >
-        Submit
-      </button>
-    </div>
-  );
-}
+// function AdminInput({
+//   adminName,
+//   setAdminName,
+// }: {
+//   adminName: string;
+//   setAdminName: (name: string) => void;
+// }) {
+//   return (
+//     <div className="flex flex-col items-center justify-center h-screen bg-green-800 gap-y-4">
+//       <label htmlFor="name" className="text-white text-lg font-semibold">
+//         Enter Admin Name
+//       </label>
+//       <input
+//         className=" rounded-sm p-2 outline-none text-sm"
+//         placeholder="Admin"
+//         type="text"
+//         name="name"
+//         id="name"
+//         value={adminName}
+//         onChange={(e) => setAdminName(e.target.value)}
+//       />
+//       <button
+//         className="text-black py-2 bg-green-400 rounded-lg px-4 text-sm
+//   "
+//       >
+//         Submit
+//       </button>
+//     </div>
+//   );
+// }
 
 const ROULETTE_NUMBERS = Array.from({ length: 37 }, (_, index) => {
   let color;

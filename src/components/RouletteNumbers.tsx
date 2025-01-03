@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import { Bet } from "./Main";
 
 const RouletteNumbers = ({
@@ -6,8 +5,7 @@ const RouletteNumbers = ({
   color,
   number,
   selectedCoin,
-  setBets,
-  setSelectedCoin,
+
   bets,
 }: {
   socket: WebSocket;
