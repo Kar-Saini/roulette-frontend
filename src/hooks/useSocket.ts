@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-const WS_URL = process.env.WS || "ws://localhost:8080";
+const WS_URL =
+  "ws://ec2-3-110-48-133.ap-south-1.compute.amazonaws.com/roulette";
 
 export default function useSocket(name?: string) {
   console.log(WS_URL);
