@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 const WS_URL = process.env.WS || "ws://localhost:8080";
 
 export default function useSocket(name?: string) {
+  console.log(WS_URL);
   const [socket, setSocket] = useState<WebSocket>();
   const [isLoading, setIsLoading] = useState(true);
 
