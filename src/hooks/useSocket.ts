@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-const WS_URL =
-  "ws://ec2-3-110-48-133.ap-south-1.compute.amazonaws.com/roulette";
+const WS_URL = "wss://kar-saini.duckdns.org/roulette";
 
 export default function useSocket(name?: string) {
   console.log(WS_URL);
